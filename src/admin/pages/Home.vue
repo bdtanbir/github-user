@@ -1,8 +1,13 @@
 <template>
   <div class="home">
     <div class="gtui-search-box">
-      <input type="text" v-model="search" placeholder="Search Username" />
-      <button @click="searchGit">Get User</button>
+      <input
+        type="text"
+        v-model="search"
+        @input="searchGit"
+        @change="searchGit"
+        placeholder="Search Username"
+      />
       <div class="search-result-name">
         <UsersLists v-for="user in users" :key="user.id" :user="user" />
       </div>
@@ -40,7 +45,3 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-</style>
