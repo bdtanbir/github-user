@@ -87,8 +87,13 @@
     font-size: 22px;
     padding: 0;
     margin-top: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: 600;
+}
+.search-result-user-details-info .left .user-subtitle {
+    margin: 0 0 15px 0;
+    font-weight: 400;
+    color: #777;
 }
 .search-result-user-details-info .left .user-bio {
     font-size: 16px;

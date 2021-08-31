@@ -11,6 +11,7 @@
         <h1 v-if="userDetails.name" class="user-title">
           {{ userDetails.name }}
         </h1>
+        <h3 class="user-subtitle">{{userInfo.login}}</h3>
         <p v-if="userDetails.bio" class="user-bio">
           {{ userDetails.bio }}
         </p>
