@@ -8,7 +8,7 @@
         @click="getUserRepos"
         class="search-result-name"
       >
-        <h1>{{ user.name }}</h1>
+        <h1>{{ user.name ? user.name : user.login }}</h1>
       </div>
     </div>
 
@@ -71,14 +71,17 @@ export default {
     searchGit: function () {
       this.resultUser = true;
       this.showUserDetails = false;
-      return axios
-        .get("https://api.github.com/users/" + this.search)
-        .then((response) => {
-          this.user = response.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      return (
+        axios
+          .get("https://api.github.com/users/" + this.search)
+          //   .get("https://api.github.com/search?q=" + this.search + "&type=users")
+          .then((response) => {
+            this.user = response.data;
+          })
+          .catch((error) => {
+            console.log(error);
+          })
+      );
     },
     getUserRepos: function () {
       this.showUserDetails = true;
