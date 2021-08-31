@@ -1,0 +1,130 @@
+.gtui-search-box input {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 3px 18px;
+}
+.gtui-search-box input:focus {
+    outline: none;
+    box-shadow: none;
+    border-color: #2271b1;
+}
+.gtui-search-box button {
+    background: #2271b1;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+.gtui-search-box button:hover {
+    background: #0a7dda;
+}
+
+.gtui-search-box .search-result-name {
+    margin-top: 20px;
+}
+.gtui-search-box .search-result-name h1 {
+    font-size: 16px;
+    background: #ffffff;
+    padding: 7px 15px;
+    cursor: pointer;
+    max-width: 200px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 4%);
+}
+.gtui-search-box .search-result-name h1 + h1 {
+    border-top: 1px solid #dddddd;
+}
+
+/* User Details */
+.search-result-user-details-info {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 30px;
+    background: #fff;
+    border-radius: 6px;
+    padding: 20px;
+}
+.search-result-user-details-info .left {
+    width: 300px;
+    position: relative;
+}
+.search-result-user-details-info .right {
+    flex: 1;
+    padding-left: 30px;
+}
+.search-result-user-details-info .left .user-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+.search-result-user-details-info .left .user-title {
+    font-size: 22px;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.search-result-user-details-info .left .user-bio {
+    font-size: 16px;
+    margin: 0 0 15px 0;
+}
+.search-result-user-details-info .left .user-location {
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+    font-weight: 500;
+    padding-left: 15px;
+}
+.search-result-user-details-info .left .user-location:after,
+.search-result-user-details-info .left .user-location:before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 0;
+    background: #aaa;
+    border-radius: 50%;
+    top: 4px;
+}
+.search-result-user-details-info .left .user-location:after {
+    border-radius: 0;
+    top: 7px;
+    width: 6px;
+    left: 1.1px;
+    height: 6px;
+    transform: rotate(45deg) skew(10deg, 10deg);
+}
+.search-result-user-details-info .right h1 {
+    font-weight: 600;
+    padding: 8px 20px 8px 20px;
+    margin: 0 0 25px 0;
+    background: #f1f1f1;
+    border-bottom: 1px solid #eee;
+}
+.search-result-user-details-info .right ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+.search-result-user-details-info .right ul li {
+    margin-bottom: 10px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+.search-result-user-details-info .right ul li a {
+    text-decoration: none;
+    color: #2271b1;
+    font-weight: 600;
+    font-size: 17px;
+}
+.search-result-user-details-info .right ul li a:hover {
+    color: #000000;
+}
+
+
+
+
+
+

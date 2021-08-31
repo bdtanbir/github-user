@@ -16,7 +16,6 @@ var appName = 'app';
 var entryPoint = {
   frontend: './src/frontend/main.js',
   admin: './src/admin/main.js',
-  style: './assets/less/style.less',
 };
 
 var exportPath = path.resolve(__dirname, './assets/js');
