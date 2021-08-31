@@ -28,14 +28,17 @@
     max-height: 520px;
     overflow-x: hidden;
 }
+.search-result-user-details-info .right ul::-webkit-scrollbar,
 .gtui-search-box .search-result-name::-webkit-scrollbar {
     width: 5px;
     border-radius: 10px;
 }
+.search-result-user-details-info .right ul::-webkit-scrollbar-track,
 .gtui-search-box .search-result-name::-webkit-scrollbar-track {
     background: #f1f1f1;
     border-radius: 10px;
 }
+.search-result-user-details-info .right ul::-webkit-scrollbar-thumb,
 .gtui-search-box .search-result-name::-webkit-scrollbar-thumb {
     background: #dddddd;
     border-radius: 10px;
@@ -121,9 +124,11 @@
 }
 .search-result-user-details-info .right ul {
     margin: 0;
-    padding: 0;
+    padding: 0 10px 0 0;
     display: flex;
     flex-direction: column;
+    max-height: 650px;
+    overflow-x: hidden;
 }
 .search-result-user-details-info .right ul li {
     margin-bottom: 10px;

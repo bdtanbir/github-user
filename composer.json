@@ -1,12 +1,12 @@
 {
-    "name": "tareq1988/vue-wp-starter",
-    "description": "A WordPress Vue.js starter plugin",
+    "name": "bdtanbir/github-users-info",
+    "description": "Search Github User",
     "type": "wordpress-plugin",
     "license": "GPL-2.0-or-later",
     "authors": [
         {
-            "name": "Tareq Hasan",
-            "email": "tareq@wedevs.com"
+            "name": "Tanbir Ahmed",
+            "email": "tanbirsylhet20@gmail.com"
         }
     ],
     "minimum-stability": "dev",

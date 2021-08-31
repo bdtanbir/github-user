@@ -28,33 +28,16 @@ export default {
   },
   methods: {
     searchGit: function () {
-      return (
-        axios
-          .get(" https://api.github.com/search/users?q=" + this.search)
-          .then((response) => {
-            console.dir(response.data.items);
-            this.users = response.data.items;
-          })
-          .catch((error) => {
-            console.log(error);
-          })
-      );
+      return axios
+        .get(" https://api.github.com/search/users?q=" + this.search)
+        .then((response) => {
+          this.users = response.data.items;
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
-//   created() {
-//     return (
-//       axios.get("https://api.github.com/search/users?q=" + this.search).then((response) => {
-//           this.users = response.data.items;
-//       })
-//     )
-//   },
-//   computed: {
-//     filteredUsers: function () {
-//       return this.users.filter((user) => {
-//         return user.login.match(this.search);
-//       });
-//     },
-//   },
 };
 </script>
 

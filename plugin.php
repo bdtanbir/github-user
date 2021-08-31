@@ -5,7 +5,7 @@ Plugin URI:
 Description: Search Github User Name
 Version: 0.1
 Author: Tanbir Ahmed
-Author URI: 
+Author URI: http://tanbirahmed.unaux.com/
 License: GPL2
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: github-users-info
@@ -17,28 +17,24 @@ if ( !defined( 'ABSPATH' ) ) exit;
 
 /**
  * Github_Users_Info class
- *
  * @class Github_Users_Info The class that holds the entire Github_Users_Info plugin
  */
 final class Github_Users_Info {
 
     /**
      * Plugin version
-     *
      * @var string
      */
-    public $version = '0.1.0';
+    public $version = '1.0.0';
 
     /**
      * Holds various class instances
-     *
      * @var array
      */
     private $container = array();
 
     /**
      * Constructor for the Github_Users_Info class
-     *
      * Sets up all the appropriate hooks and actions
      * within our plugin.
      */
@@ -159,8 +155,6 @@ final class Github_Users_Info {
         if ( $this->is_request( 'ajax' ) ) {
             // require_once GTUI_INCLUDES . '/class-ajax.php';
         }
-
-        require_once GTUI_INCLUDES . '/Api.php';
     }
 
     /**
@@ -191,7 +185,6 @@ final class Github_Users_Info {
             // $this->container['ajax'] =  new App\Ajax();
         }
 
-        $this->container['api'] = new App\GTUI_Api();
         $this->container['assets'] = new App\GTUI_Assets();
     }
 

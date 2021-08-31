@@ -49,7 +49,6 @@ export default {
       .get("https://api.github.com/users/" + this.userInfo.login + "/repos")
       .then((response) => {
         this.userRepos = response.data;
-        console.log(this.userRepos);
       })
       .catch((error) => {
         console.log(error);
@@ -58,7 +57,6 @@ export default {
       .get("https://api.github.com/users/" + this.userInfo.login)
       .then((response) => {
         this.userDetails = response.data;
-        console.log(this.userDetails);
       })
       .catch((error) => {
         console.log(error);
