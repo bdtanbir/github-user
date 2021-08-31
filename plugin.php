@@ -156,10 +156,6 @@ final class Github_Users_Info {
             require_once GTUI_INCLUDES . '/Admin.php';
         }
 
-        if ( $this->is_request( 'frontend' ) ) {
-            require_once GTUI_INCLUDES . '/Frontend.php';
-        }
-
         if ( $this->is_request( 'ajax' ) ) {
             // require_once GTUI_INCLUDES . '/class-ajax.php';
         }
@@ -191,10 +187,6 @@ final class Github_Users_Info {
             $this->container['admin'] = new App\GTUI_Admin();
         }
 
-        if ( $this->is_request( 'frontend' ) ) {
-            $this->container['frontend'] = new App\Frontend();
-        }
-
         if ( $this->is_request( 'ajax' ) ) {
             // $this->container['ajax'] =  new App\Ajax();
         }
@@ -212,13 +204,6 @@ final class Github_Users_Info {
         load_plugin_textdomain( 'github-users-info', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
     }
 
-    /**
-     * What type of request is this?
-     *
-     * @param  string $type admin, ajax, cron or frontend.
-     *
-     * @return bool
-     */
     private function is_request( $type ) {
         switch ( $type ) {
             case 'admin' :
@@ -233,8 +218,6 @@ final class Github_Users_Info {
             case 'cron' :
                 return defined( 'DOING_CRON' );
 
-            case 'frontend' :
-                return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' );
         }
     }
 

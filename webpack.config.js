@@ -1,20 +1,14 @@
-const webpack = require('webpack');
 const path = require('path');
-const package = require('./package.json');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const config = require( './config.json' );
 
 const devMode = process.env.NODE_ENV !== 'production';
 
 // Naming and path settings
 var appName = 'app';
 var entryPoint = {
-  frontend: './src/frontend/main.js',
   admin: './src/admin/main.js',
 };
 
@@ -47,7 +41,7 @@ plugins.push(new MiniCssExtractPlugin({
 plugins.push(new VueLoaderPlugin());
 
 // Differ settings based on production flag
-if ( devMode ) {
+if (devMode) {
   appName = '[name].js';
 } else {
   appName = '[name].min.js';
@@ -65,7 +59,6 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': path.resolve('./src/'),
-      'frontend': path.resolve('./src/frontend/'),
       'admin': path.resolve('./src/admin/'),
     },
     modules: [
@@ -100,14 +93,6 @@ module.exports = {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'vue-style-loader',
-          'css-loader',
-          'less-loader'
-        ]
       },
       {
         test: /\.png$/,

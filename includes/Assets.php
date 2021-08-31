@@ -7,7 +7,6 @@ namespace App;
 class GTUI_Assets {
 
     function __construct() {
-
         if ( is_admin() ) {
             add_action( 'admin_enqueue_scripts', [ $this, 'register' ], 5 );
         } else {
@@ -17,7 +16,6 @@ class GTUI_Assets {
 
     /**
      * Register our app scripts and styles
-     *
      * @return void
      */
     public function register() {
@@ -27,9 +25,7 @@ class GTUI_Assets {
 
     /**
      * Register scripts
-     *
      * @param  array $scripts
-     *
      * @return void
      */
     private function register_scripts( $scripts ) {
@@ -44,9 +40,7 @@ class GTUI_Assets {
 
     /**
      * Register styles
-     *
      * @param  array $styles
-     *
      * @return void
      */
     public function register_styles( $styles ) {
@@ -59,32 +53,25 @@ class GTUI_Assets {
 
     /**
      * Get all registered scripts
-     *
      * @return array
      */
     public function get_scripts() {
         $prefix = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ? '.min' : '';
 
         $scripts = [
-            'baseplugin-runtime' => [
+            'gtui-runtime' => [
                 'src'       => GTUI_ASSETS . '/js/runtime.js',
                 'version'   => filemtime( GTUI_PATH . '/assets/js/runtime.js' ),
                 'in_footer' => true
             ],
-            'baseplugin-vendor' => [
+            'gtui-vendor' => [
                 'src'       => GTUI_ASSETS . '/js/vendors.js',
                 'version'   => filemtime( GTUI_PATH . '/assets/js/vendors.js' ),
                 'in_footer' => true
             ],
-            'baseplugin-frontend' => [
-                'src'       => GTUI_ASSETS . '/js/frontend.js',
-                'deps'      => [ 'jquery', 'baseplugin-vendor', 'baseplugin-runtime' ],
-                'version'   => filemtime( GTUI_PATH . '/assets/js/frontend.js' ),
-                'in_footer' => true
-            ],
-            'baseplugin-admin' => [
+            'gtui-admin' => [
                 'src'       => GTUI_ASSETS . '/js/admin.js',
-                'deps'      => [ 'jquery', 'baseplugin-vendor', 'baseplugin-runtime' ],
+                'deps'      => [ 'jquery', 'gtui-vendor', 'gtui-runtime' ],
                 'version'   => filemtime( GTUI_PATH . '/assets/js/admin.js' ),
                 'in_footer' => true
             ]
@@ -95,19 +82,15 @@ class GTUI_Assets {
 
     /**
      * Get registered styles
-     *
      * @return array
      */
     public function get_styles() {
 
         $styles = [
-            'baseplugin-style' => [
+            'gtui-style' => [
                 'src' =>  GTUI_ASSETS . '/css/style.css'
             ],
-            'baseplugin-frontend' => [
-                'src' =>  GTUI_ASSETS . '/css/frontend.css'
-            ],
-            'baseplugin-admin' => [
+            'gtui-admin' => [
                 'src' =>  GTUI_ASSETS . '/css/admin.css'
             ],
         ];

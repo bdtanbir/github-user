@@ -16,8 +16,6 @@ class GTUI_Admin {
      * @return void
      */
     public function admin_menu() {
-        global $submenu;
-
         $capability = 'manage_options';
         $slug       = 'github-users-info';
 
@@ -31,17 +29,11 @@ class GTUI_Admin {
             50 
         );
 
-        // if ( current_user_can( $capability ) ) {
-        //     $submenu[ $slug ][] = array( __( 'App', 'github-users-info' ), $capability, 'admin.php?page=' . $slug . '#/' );
-        //     $submenu[ $slug ][] = array( __( 'Settings', 'github-users-info' ), $capability, 'admin.php?page=' . $slug . '#/settings' );
-        // }
-
         add_action( 'load-' . $hook, [ $this, 'init_hooks'] );
     }
 
     /**
      * Initialize our hooks for the admin page
-     *
      * @return void
      */
     public function init_hooks() {
@@ -54,8 +46,8 @@ class GTUI_Admin {
      * @return void
      */
     public function enqueue_scripts() {
-        wp_enqueue_style( 'baseplugin-admin' );
-        wp_enqueue_script( 'baseplugin-admin' );
+        wp_enqueue_style( 'gtui-admin' );
+        wp_enqueue_script( 'gtui-admin' );
     }
 
     /**
