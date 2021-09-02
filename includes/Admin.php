@@ -8,6 +8,8 @@ class GTUI_Admin {
 
     public function __construct() {
         add_action( 'admin_menu', [ $this, 'admin_menu' ] );
+		add_action( 'wp_ajax_my_ajaxcall', [$this,'my_ajaxcall'] );
+		add_action( 'wp_ajax_nopriv_my_ajaxcall', [$this,'my_ajaxcall'] );
     }
 
     /**
@@ -38,6 +40,10 @@ class GTUI_Admin {
      */
     public function init_hooks() {
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
+        wp_enqueue_script( 'gtui-global-admin', GTUI_ASSETS.'/js/global-admin.js', null, GTUI_VERSION, true );
+		wp_localize_script( 'gtui-global-admin', 'ajax_url', array(
+			'ajaxurl'         => admin_url( 'admin-ajax.php' ),
+		));
     }
 
     /**
@@ -52,10 +58,20 @@ class GTUI_Admin {
 
     /**
      * Render our admin page
-     *
      * @return void
      */
     public function gtui_menu_page_template() {
         echo '<div class="wrap"><div id="gtui-admin-app"></div></div>';
+    }
+    public function my_ajaxcall() {
+        $searchUsername = (isset($_POST['search_username']) ? $_POST['search_username'] : '');
+        $request = wp_remote_get( "https://api.github.com/search/users?q=".$searchUsername );
+        if( is_wp_error( $request ) ) {
+            return false;
+        }
+        $userData = json_decode(wp_remote_retrieve_body( $request ));
+        wp_send_json_success( $userData, '200' );
+        
+        die();
     }
 }

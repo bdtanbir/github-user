@@ -87,9 +87,6 @@ class GTUI_Assets {
     public function get_styles() {
 
         $styles = [
-            'gtui-style' => [
-                'src' =>  GTUI_ASSETS . '/css/style.css'
-            ],
             'gtui-admin' => [
                 'src' =>  GTUI_ASSETS . '/css/admin.css'
             ],

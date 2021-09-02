@@ -152,9 +152,7 @@ final class Github_Users_Info {
             require_once GTUI_INCLUDES . '/Admin.php';
         }
 
-        if ( $this->is_request( 'ajax' ) ) {
-            // require_once GTUI_INCLUDES . '/class-ajax.php';
-        }
+        if ( $this->is_request( 'ajax' ) ) {}
     }
 
     /**
@@ -181,9 +179,7 @@ final class Github_Users_Info {
             $this->container['admin'] = new App\GTUI_Admin();
         }
 
-        if ( $this->is_request( 'ajax' ) ) {
-            // $this->container['ajax'] =  new App\Ajax();
-        }
+        if ( $this->is_request( 'ajax' ) ) {}
 
         $this->container['assets'] = new App\GTUI_Assets();
     }

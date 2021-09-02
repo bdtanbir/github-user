@@ -1,5 +1,5 @@
 .gtui-search-box input {
-    min-width: 230px;
+    min-width: 240px;
     background: #fff;
     border: 1px solid #ddd;
     padding: 3px 18px;
@@ -47,15 +47,28 @@
 .gtui-search-box .search-result-name h1 {
     padding: 0;
     margin-bottom: 10px;
+    background: #ffffff;
+    padding: 7px 10px;
+    max-width: 220px;
 }
 .gtui-search-box .search-result-name a {
     font-size: 16px;
-    background: #ffffff;
-    padding: 7px 15px;
     cursor: pointer;
-    max-width: 200px;
-    display: block;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-weight: 600;
+    border-radius: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.gtui-search-box .search-result-name a img {
+    width: 35px;
+    height: 35px;
+    border-radius: 5px;
+    margin-right: 8px;
 }
 .gtui-search-box .search-result-name a + a {
     border-top: 1px solid #dddddd;

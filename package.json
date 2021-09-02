@@ -2,7 +2,7 @@
   "name": "github-user",
   "version": "1.0.0",
   "description": "Github Users info",
-  "author": "Tanbir Ahmed <tanbirsylhet20@gmail.com>",
+  "author": "bdtanbir <tanbirsylhet20@gmail.com>",
   "license": "GPLv2",
   "private": true,
   "scripts": {
@@ -11,8 +11,10 @@
     "build": "webpack -p --mode production"
   },
   "dependencies": {
+    "jquery": "^3.6.0",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.5",
+    "vue-resource": "^1.5.3",
     "vue-router": "^3.4.3"
   },
   "devDependencies": {

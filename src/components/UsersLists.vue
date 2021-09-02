@@ -6,7 +6,7 @@
         params: { user: user, id: user.id },
       }"
     >
-      {{ user.login }}
+      <img :src="user.avatar_url" alt="" /> {{ user.login }}
     </router-link>
   </h1>
 </template>
