@@ -18,7 +18,6 @@
 </template>
 
 <script>
-// import axios from "axios";
 import $ from "jquery";
 import UsersLists from "../../components/UsersLists.vue";
 export default {
@@ -35,17 +34,6 @@ export default {
     UsersLists,
   },
   methods: {
-    // searchGit: function () {
-    //   return axios
-    //     .get(" https://api.github.com/search/users?q=" + this.search)
-    //     .then((response) => {
-    //       this.users = response.data.items;
-    //     })
-    //     .catch((error) => {
-    //       console.log(error);
-    //     });
-    // },
-
     searchGit: function () {
       const that = this;
       $.ajax({
@@ -57,10 +45,10 @@ export default {
         },
         success: function (data) {
           that.users = data.data.items;
+          console.log(data.data.items);
         },
       });
     },
   },
-  mounted: function () {},
 };
 </script>
