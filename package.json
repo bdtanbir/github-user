@@ -14,7 +14,6 @@
     "jquery": "^3.6.0",
     "vue": "^2.6.11",
     "vue-axios": "^3.2.5",
-    "vue-resource": "^1.5.3",
     "vue-router": "^3.4.3"
   },
   "devDependencies": {

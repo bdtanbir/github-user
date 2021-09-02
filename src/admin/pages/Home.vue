@@ -6,9 +6,9 @@
           type="text"
           v-model="search"
           name="search_username"
+          @keyup.enter="searchGit"
           placeholder="Search Username"
         />
-        <button type="submit" @click="searchGit">submit</button>
       </form>
       <div class="search-result-name">
         <UsersLists v-for="user in users" :key="user.id" :user="user" />
@@ -45,7 +45,6 @@ export default {
         },
         success: function (data) {
           that.users = data.data.items;
-          console.log(data.data.items);
         },
       });
     },

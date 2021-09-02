@@ -62,7 +62,8 @@ export default {
       .catch((error) => {
         console.log(error);
       });
-    return request1 + request2;
+    const requests = request1 + request2;
+    return requests;
   },
 };
 </script>
