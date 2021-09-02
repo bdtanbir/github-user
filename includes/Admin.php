@@ -40,10 +40,6 @@ class GTUI_Admin {
      */
     public function init_hooks() {
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_scripts' ] );
-        wp_enqueue_script( 'gtui-global-admin', GTUI_ASSETS.'/js/global-admin.js', null, GTUI_VERSION, true );
-		wp_localize_script( 'gtui-global-admin', 'ajax_url', array(
-			'ajaxurl'         => admin_url( 'admin-ajax.php' ),
-		));
     }
 
     /**
@@ -54,6 +50,10 @@ class GTUI_Admin {
     public function enqueue_scripts() {
         wp_enqueue_style( 'gtui-admin' );
         wp_enqueue_script( 'gtui-admin' );
+        wp_enqueue_script( 'gtui-global-admin', GTUI_ASSETS.'/js/global-admin.js', null, GTUI_VERSION, true );
+		wp_localize_script( 'gtui-global-admin', 'ajax_url', array(
+			'ajaxurl'         => admin_url( 'admin-ajax.php' ),
+		));
     }
 
     /**
