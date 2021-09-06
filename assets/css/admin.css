@@ -95,11 +95,11 @@
     width: 250px;
     height: 250px;
     border-radius: 50%;
+    margin-bottom: 15px;
 }
 .search-result-user-details-info .left .user-title {
     font-size: 22px;
     padding: 0;
-    margin-top: 15px;
     margin-bottom: 5px;
     font-weight: 600;
 }

@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import $ from "jquery";
 export default {
   name: "UserSingle",
 
@@ -46,24 +46,29 @@ export default {
   },
 
   created() {
-    const request1 = axios
-      .get("https://api.github.com/users/" + this.userInfo.login + "/repos")
-      .then((response) => {
-        this.userRepos = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    const request2 = axios
-      .get("https://api.github.com/users/" + this.userInfo.login)
-      .then((response) => {
-        this.userDetails = response.data;
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    const requests = request1 + request2;
-    return requests;
+    const that = this;
+    $.ajax({
+      type: "POST",
+      url: ajax_url.ajaxurl,
+      data: {
+        action: "my_ajaxcall2",
+        clickUser: that.userInfo.login,
+      },
+      success: function (data) {
+        that.userDetails = data.data;
+      },
+    });
+    $.ajax({
+      type: "POST",
+      url: ajax_url.ajaxurl,
+      data: {
+        action: "user_repos_callback",
+        userRepos: that.userInfo.login,
+      },
+      success: function (data) {
+        that.userRepos = data.data;
+      },
+    });
   },
 };
 </script>

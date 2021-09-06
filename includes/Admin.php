@@ -10,6 +10,10 @@ class GTUI_Admin {
         add_action( 'admin_menu', [ $this, 'admin_menu' ] );
 		add_action( 'wp_ajax_my_ajaxcall', [$this,'my_ajaxcall'] );
 		add_action( 'wp_ajax_nopriv_my_ajaxcall', [$this,'my_ajaxcall'] );
+		add_action( 'wp_ajax_my_ajaxcall2', [$this,'my_ajaxcall2'] );
+		add_action( 'wp_ajax_nopriv_my_ajaxcall2', [$this,'my_ajaxcall2'] );
+		add_action( 'wp_ajax_user_repos_callback', [$this,'user_repos_callback'] );
+		add_action( 'wp_ajax_nopriv_user_repos_callback', [$this,'user_repos_callback'] );
     }
 
     /**
@@ -62,6 +66,28 @@ class GTUI_Admin {
      */
     public function gtui_menu_page_template() {
         echo '<div class="wrap"><div id="gtui-admin-app"></div></div>';
+    }
+    public function user_repos_callback() {
+        $userRepos = (isset($_POST['userRepos']) ? $_POST['userRepos'] : '');
+        $request = wp_remote_get( "https://api.github.com/users/".$userRepos."/repos" );
+        if( is_wp_error( $request ) ) {
+            return false;
+        }
+        $userData = json_decode(wp_remote_retrieve_body( $request ));
+        wp_send_json_success( $userData, 200 );
+        
+        die();
+    }
+    public function my_ajaxcall2() {
+        $clickuser = (isset($_POST['clickUser']) ? $_POST['clickUser'] : '');
+        $request = wp_remote_get( "https://api.github.com/users/".$clickuser );
+        if( is_wp_error( $request ) ) {
+            return false;
+        }
+        $userData = json_decode(wp_remote_retrieve_body( $request ));
+        wp_send_json_success( $userData, 200 );
+        
+        die();
     }
     public function my_ajaxcall() {
         $searchUsername = (isset($_POST['search_username']) ? $_POST['search_username'] : '');
