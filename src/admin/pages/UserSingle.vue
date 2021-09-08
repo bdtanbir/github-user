@@ -40,8 +40,8 @@ export default {
   data() {
     return {
       userRepos: [],
-      userDetails: "",
-      userInfo: this.$route.params.user,
+      userDetails: {},
+      userInfo: this.$route.params.user ? this.$route.params.user : {},
     };
   },
 
