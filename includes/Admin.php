@@ -74,7 +74,7 @@ class GTUI_Admin {
             return false;
         }
         $userData = json_decode(wp_remote_retrieve_body( $request ));
-        wp_send_json_success( $userData, 200 );
+        wp_send_json_success( $userData, 200 ); // send a JSON response back to an Ajax request
         
         die();
     }
@@ -85,7 +85,7 @@ class GTUI_Admin {
             return false;
         }
         $userData = json_decode(wp_remote_retrieve_body( $request ));
-        wp_send_json_success( $userData, 200 );
+        wp_send_json_success( $userData, 200 ); // send a JSON response back to an Ajax request
         
         die();
     }
@@ -96,7 +96,7 @@ class GTUI_Admin {
             return false;
         }
         $userData = json_decode(wp_remote_retrieve_body( $request ));
-        wp_send_json_success( $userData, 200 );
+        wp_send_json_success( $userData, 200 ); // send a JSON response back to an Ajax request
         
         die();
     }
